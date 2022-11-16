@@ -1,0 +1,6 @@
+# Backup folder
+All the automated and manual request backups for the router will be stored.
+
+The name for each backup is follows this format for version control:
+Router_name-year-month-day-hour-minute.txt
+Example: CRV1000-2022-11-16-13-23.txt
