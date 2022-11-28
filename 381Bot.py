@@ -4,6 +4,7 @@ from webexteamsbot.models import Response
 ### Utilities Libraries
 import routers
 import netconf_skills as netskills
+import backup as bu
 
 # Router Info 
 device_address = routers.router1['host']
@@ -17,10 +18,10 @@ headers = {'Content-Type': 'application/yang-data+json',
            'Accept': 'application/yang-data+json'}
 
 # Bot Details
-bot_email = '381-2Bot@webex.bot'
-teams_token = 'MTE0ODkxZWQtYWNiNy00NWM0LTgwMmUtNzkwYTk3MTZjYzg3OGE2MmFmYzctOGJm_P0A1_d9694e02-1b9e-42ff-b991-18f6c73709a9'
-bot_url = "https://e4e0-144-13-254-90.ngrok.io"
-bot_app_name = 'CNIT-381 Network Auto Chat Bot'
+bot_email = 'broski@webex.bot'
+teams_token = 'Y2ZhZjFjOTAtMTZmYS00ZWM2LWIzOTItOTA4ZDBkMjk2ODNhNGNkY2MxNWItYTk0_P0A1_b34062fa-24f1-480f-a815-05d10d8cf4f2'
+bot_url = "https://fc02-144-13-254-102.ngrok.io"
+bot_app_name = 'Broski'
 
 # Create a Bot Object
 #   Note: debug mode prints out more details about processing to terminal
@@ -66,6 +67,12 @@ def toggle_int(incoming_msg):
 
     return response
 
+def backup(incoming_msg):
+    response = Response()
+    resp = bu.backup(incoming_msg.text)
+    response.markdown = resp
+
+    return response
 
 # Set the bot greeting.
 bot.set_greeting(greeting)
@@ -73,6 +80,7 @@ bot.set_greeting(greeting)
 # Add Bot's Commmands
 bot.add_command("toggle", "Ex: toggle [router] [interface] | toggle r2 lo2", toggle_int)
 bot.add_command("new loop", "Ex: new loop 2", new_loop)
+bot.add_command("backup", "Ex: backup [router] | backup r1 | backup all", backup)
 # Every bot includes a default "/echo" command.  You can remove it, or any
 bot.remove_command("/echo")
 

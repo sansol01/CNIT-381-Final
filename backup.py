@@ -1,17 +1,58 @@
 from netmiko import ConnectHandler
-import myParamiko as m
-import encrypt_dev_info as edi
+import myparamiko as m
 import time
 import threading
 import getpass
 
-start = time.time()
+#start = time.time()
+#r1 = manager.connect(**routers.router1)
+#r2 = manager.connect(**routers.router2)
 
-def backup(router):
-    connection = ConnectHandler(**router)
-    prompt = connection.find_prompt()
-    if '>' in prompt:
-        connection.enable()
+r1 = {
+        'device_type': 'cisco_ios',
+        'host': '192.168.56.102', 
+        'username': 'cisco',
+        'password': 'cisco123!',
+        'port': 22,
+        'secret': 'cisco123!',
+        'verbose': True
+    }
+
+r2 = {
+        'device_type': 'cisco_ios',
+        'host': '192.168.56.107', 
+        'username': 'cisco',
+        'password': 'cisco123!',
+        'port': 22,
+        'secret': 'cisco123!',
+        'verbose': True
+    }
+
+def backup(message):
+    if "all" in message:
+        #backupR(r2)
+        #backupR(r1)
+        return ("Backing up all routers\n" + "File loaction: " + backupR(r1) + "\nFile location" + backupR(r2))
+    elif "r2" in message:
+        return "File loaction: " + backupR(r2) 
+    else: #default to r1
+        return "File location: " + backupR(r1)
+
+
+def backupR(rTarget):
+    #cut toggle out of the string
+
+    #Check for a target router
+#    if "r2" in message:
+#        rTarget = r2
+#    else: #default to r1
+#        rTarget = r1
+
+    #call toggle_interface and return the result
+    connection = ConnectHandler(**rTarget)
+    #prompt = connection.find_prompt()
+    #if '>' in prompt:
+    connection.enable()
     print('Sending commands...')
     #output = connection.send_command('copy run start')
     output = connection.send_command('sho run')
@@ -28,7 +69,7 @@ def backup(router):
     hour = now.hour
     minute = now.minute
 
-    filename = f'{router["host"]}_{year}-{month}-{day}-{hour}-{minute}.txt'
+    filename = f'ROUTER_BACKUP/{rTarget["host"]}_{year}-{month}-{day}-{hour}-{minute}.txt'
     with open(filename, 'w') as f:
         f.write(output)
 
@@ -36,17 +77,21 @@ def backup(router):
     connection.disconnect()
     print('#'*40)
 
-routers = m.get_list_from_file ('routers.txt')
-threads = list()
-for router in routers:
-    th = threading.Thread(target = backup, args = (router,))
-    threads.append(th)
+    return filename
 
-for th in threads:
-    th.start()
+#routers = m.get_list_from_file ('routers.txt')
+#threads = list()
+#for router in routers:
+#    th = threading.Thread(target = backup, args = (router,))
+#    threads.append(th)
 
-for th in threads:
-    th.join()
+#for th in threads:
+#    th.start()
 
-end = time.time()
-print(f'Total execution time: {end-start}')
+#for th in threads:
+#    th.join()
+
+#end = time.time()
+#print(f'Total execution time: {end-start}')
+
+
