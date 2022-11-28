@@ -19,7 +19,7 @@ Usage: toggle [router] [interface]
 The toggle command, when given a router and interface to act on, will enable a disabled interface, or disable an enabled interface.
 it requires the name of the router (r1 or r2 for this project) and the abreviated name of the interface you'd like to toggle (lo2, gb1, etc.)
 If either of these arguments are missing, the command will default to targeting Loopback1 on router one.
-
+After toggling the interface, the chat bot will print some information about the interface, including its current state, to the message thread.
 
 ![screenshot](pictures/tutorial1.png)
 
