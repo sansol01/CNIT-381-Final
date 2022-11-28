@@ -14,6 +14,6 @@ Part of the chatbots purpose it to notify the IT administrator at the brach that
 # Tutorials
 ***NETCONF Tutorial:***
 
-![screenshot](pics/tutorial1.png)
+![screenshot](tutorial1.png)
 
 
