@@ -12,7 +12,7 @@ Becasue of the connection the branch has their public IP address changes every 3
 Part of the chatbots purpose it to notify the IT administrator at the brach that a new IP address has been assigned and to then automatically change the VPN configuration to use this new IP address to regain secure VPN access to HQ.
 .
 # Tutorials
-***NETCONF Skill Tutorial: Interface Toggler ***
+***NETCONF Skill Tutorial: Interface Toggler***
 
 Usage: toggle [router] [interface]
 The toggle command, when given a router and interface to act on, will enable a disabled interface, or disable an enabled interface.
