@@ -23,10 +23,10 @@ r2 = manager.connect(
 )
 
 # import templates
-int_off_template = open("int_switch_off.j2").read()
-int_on_template = open("int_switch_on.j2").read()
-int_filter = open("int_filter.j2").read()
-new_loop = open("new_loop.j2").read()
+int_off_template = open("interfaces/int_switch_off.j2").read()
+int_on_template = open("interfaces/int_switch_on.j2").read()
+int_filter = open("interfaces/int_filter.j2").read()
+new_loop = open("interfaces/new_loop.j2").read()
 
 #Configures a loopback interface on router one for demo purposes
 def conf_loopback(number): 
