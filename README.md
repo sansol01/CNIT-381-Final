@@ -21,6 +21,6 @@ It requires the name of the router ("hq" or "branch" for this project) and the a
 If either of these arguments are invalid or missing, the bot will let you know.
 After toggling the interface, the chat bot will print some information about the interface, including it's current state, to the message thread.
 
-![screenshot](pictures/tutorial1.png)
+![screenshot](pictures/netconftutorial1.png)
 
 
