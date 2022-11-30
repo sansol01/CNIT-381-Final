@@ -1,0 +1,37 @@
+---
+- name: UPDATE VPN CONFIGURATION
+  hosts: HQ
+  gather_facts: false
+  connection: local
+
+
+
+  tasks:
+  - name: SET ISAKMP ADDRESS
+    ios_config:
+      commands:
+        - crypto isakmp key cisco address 172.16.0.3
+      timeout: 15
+
+
+  - name: UPDATE VPN PEER
+    ios_config:
+      parents: 'crypto map Crypt 10 ipsec-isakmp'
+      lines:
+        - set peer 172.16.0.3
+
+
+
+  - name: SHOW RUNNING CONFIG
+    ios_command:
+      commands:
+        - show run
+    register: output  
+
+
+  - name: SAVE RUNNING COFNIG  
+    copy:
+      content: "{{ output.stdout[0] }}"
+      dest: "./RUN_CONFIG/{{ inventory_hostname}}.txt" 
+  
+

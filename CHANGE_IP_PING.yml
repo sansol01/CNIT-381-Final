@@ -1,0 +1,29 @@
+---
+- name: CHANGE IP AND SEND PING
+  hosts: HQ, BRANCH
+  gather_facts: false
+  connection: local
+
+  tasks:
+  - name: SET IP 
+    ios_config:
+      parents: "interface GigabitEthernet2"
+      lines:
+        - ip address 172.16.0.3 255.255.255.0
+    when: inventory_hostname == 'BRANCH'
+
+
+  - name: SEND PING FOR MONITOR
+    ios_command:
+      commands:
+        - ping 172.16.0.2
+      timeout: 30
+    when: inventory_hostname == "HQ"
+    register: ping
+
+  - name: SAVE PING RESULT
+    copy:
+      content: "{{ ping.stdout[0] }}"
+      dest: "./PING_RESULT/{{ inventory_hostname}}.txt" 
+    when: inventory_hostname == "HQ"
+

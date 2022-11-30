@@ -1,0 +1,2 @@
+HQ ansible_user=cisco ansible_password=cisco123! ansible_host=192.168.56.101 
+BRANCH ansible_user=cisco ansible_password=cisco123! ansible_host=192.168.56.103
