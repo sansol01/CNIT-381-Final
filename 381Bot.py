@@ -96,7 +96,7 @@ bot.add_command("toggle", "Ex: toggle [router] [interface] | toggle r2 lo2", tog
 bot.add_command("new loop", "Ex: new loop 2", new_loop)
 bot.add_command("backup", "Ex: backup [router] | backup r1 | backup all", backup)
 bot.add_command("test the vpn config", "Ex: test vpn", vpntest)
-bot.add_command("update the von config", "Ex: update dpn", vpnupdate)
+bot.add_command("update the von config", "Ex: update vpn", vpnupdate)
 # Every bot includes a default "/echo" command.  You can remove it, or any
 bot.remove_command("/echo")
 
