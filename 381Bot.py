@@ -83,7 +83,7 @@ def test_vpn_config(incoming_message):
 
 def update_vpn_config(incoming_message):
     reponse = Response()
-    resp = vpnupdate.(incoming_msg.text)
+    resp = vpnupdate(incoming_msg.text)
     reponse.markdown = resp
 
     return response
