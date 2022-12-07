@@ -5,6 +5,9 @@ from webexteamsbot.models import Response
 import routers
 import netconf_skills as netskills
 import netmiko_skills as bu
+import CHANGE_IP_PING as vpntest
+import CANGE_VPN_CONFIG as vpnupdate
+import monitor_skill as monitoring
 
 # Router Info 
 device_address = routers.router1['host']
@@ -81,10 +84,10 @@ def test_vpn_config(incoming_message):
 
     return response
 
-def update_vpn_config(incoming_message):
-    reponse = Response()
-    resp = vpnupdate(incoming_msg.text)
-    reponse.markdown = resp
+def monitor(incoming_msg):
+    response = Response()
+    resp = monitoring(incoming_msg.text)
+    response.markdown = resp
 
     return response
 
@@ -95,8 +98,8 @@ bot.set_greeting(greeting)
 bot.add_command("toggle", "Ex: toggle [router] [interface] | toggle r2 lo2", toggle_int)
 bot.add_command("new loop", "Ex: new loop 2", new_loop)
 bot.add_command("backup", "Ex: backup [router] | backup r1 | backup all", backup)
-bot.add_command("test the vpn config", "Ex: test vpn", vpntest)
-bot.add_command("update the von config", "Ex: update vpn", vpnupdate)
+bot.add_command("test the vpn config", "This is for testing the VPN config", vpntest)
+bot.add_command("montior ping results", "This checks the ping results and updates based the vpn config depending on the results", monitor)
 # Every bot includes a default "/echo" command.  You can remove it, or any
 bot.remove_command("/echo")
 
