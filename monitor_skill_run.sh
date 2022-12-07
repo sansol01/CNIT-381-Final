@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ~/PING_RESULT
+cd ~/
 
 if true;then
     ansible-playbook CHANGE_VPN_CONFIG.yml -i hosts
