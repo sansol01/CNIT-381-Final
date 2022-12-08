@@ -2,7 +2,7 @@
 ***Purpose:*** 
 This is the repoitory for R. Berends, J. Sletten, S. Solsvik final project for CNIT 381 Network Programmability and Automation.
 
-# Project descriptoion
+# Project description
 
 Create a chatbot that can administer a network using Paramiko/Netmiko, Netconf/Restconf, and Ansible.
 
