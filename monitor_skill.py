@@ -3,13 +3,13 @@ import sys
 import subprocess
 
 
-#Updates the interface with new ip and sends a ping.
+#Updates the interface with new ip and sends a ping by running an ansible playbook.
 def ping():
     x=1
     if x == 1:
         os.system("sh ping_run.sh")
 
-#Monitors ping results and updates vpn configuration
+#Monitors ping results and updates vpn configuration by running an ansible playbook.
 def monitor():
     with open("CSR1.txt","r") as temp:
         test=temp.readlines()
