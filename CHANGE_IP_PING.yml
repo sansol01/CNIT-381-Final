@@ -24,6 +24,6 @@
   - name: SAVE PING RESULT
     copy:
       content: "{{ ping.stdout[0] }}"
-      dest: "./RESULT/{{ inventory_hostname}}.txt" 
+      dest: "~/RESULT/{{ inventory_hostname}}.txt" 
     when: inventory_hostname == "HQ"
 
