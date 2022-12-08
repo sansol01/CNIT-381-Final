@@ -25,11 +25,11 @@ After toggling the interface, the chat bot will print some information about the
 
 ***Ansible Skills Tutorial: Test the vpn config, and update the vpn config***
 
-Usage: test the vpn config
+Usage: vpn test
 
 This command will allow an anisble playbook to update the interface with a new ip address. The playbook then sends a ping to test that configuration change and depending on whether that fails or not will depend on whether the VPN information will need to be updated or not.
 
-Usage: update the vpn config
+Usage: update vpn
 
 This command will update the vpn configuration of the HQ router with the new IP addressing information from the other ansible skill.
 
