@@ -77,14 +77,14 @@ def backup(incoming_msg):
 
 def ping_test(incoming_msg):
     response = Response()
-    resp = monitoring.ping(incoming_msg.text)
+    resp = monitoring.ping()
     response.markdown = resp
 
     return response
 
 def updatevpn(incoming_msg):
     response = Response()
-    resp = monitoring.monitor(incoming_msg.text)
+    resp = monitoring.monitor()
     response.markdown = resp
 
     return response
@@ -98,7 +98,6 @@ bot.add_command("new loop", "Ex: new loop 2", new_loop)
 bot.add_command("backup", "Ex: backup [router] | backup r1 | backup all", backup)
 bot.add_command("vpn test", "Ex: tests the vpn config", ping_test)
 bot.add_command("update vpn", "Ex: updates the vpn configuration", updatevpn)
-
 # Every bot includes a default "/echo" command.  You can remove it, or any
 bot.remove_command("/echo")
 
