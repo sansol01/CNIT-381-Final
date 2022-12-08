@@ -29,10 +29,14 @@ Usage: vpn test
 
 This command will allow an anisble playbook to update the interface with a new ip address. The playbook then sends a ping to test that configuration change and depending on whether that fails or not will depend on whether the VPN information will need to be updated or not.
 
+![screenshot](pictures/monitor_ping.png)
+
 Usage: update vpn
 
 This command will update the vpn configuration of the HQ router with the new IP addressing information from the other ansible skill.
 
+
+![screenshot](pictures/monitor_vpn.png)
 
 
 
