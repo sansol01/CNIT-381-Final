@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ~/labs/devnet-src/ansible/ansible-csr1000v/PING_RESULT
+cd ~/
 
 if true;then
     ansible-playbook CHANGE_IP_PING.yml -i hosts
