@@ -3,7 +3,7 @@
   hosts: HQ, BRANCH
   gather_facts: false
   connection: local
-
+#sets the IP on the interface
   tasks:
   - name: SET IP 
     ios_config:
@@ -12,7 +12,7 @@
         - ip address 172.16.0.3 255.255.255.0
     when: inventory_hostname == 'BRANCH'
 
-
+#sends a ping to determine if the vpn configurations needs to be updated.
   - name: SEND PING FOR MONITOR
     ios_command:
       commands:
