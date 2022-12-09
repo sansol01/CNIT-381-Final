@@ -32,6 +32,6 @@
   - name: SAVE RUNNING COFNIG  
     copy:
       content: "{{ output.stdout[0] }}"
-      dest: "~/RESULT/{{ inventory_hostname}}.txt" 
+      dest: "CNIT-381-Final/RESULT/{{ inventory_hostname}}.txt" 
   
 
