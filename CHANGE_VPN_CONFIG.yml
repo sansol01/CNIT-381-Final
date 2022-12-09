@@ -5,7 +5,7 @@
   connection: local
 
 
-
+# This updates the ISKAMP address for the vpn configuration
   tasks:
   - name: SET ISAKMP ADDRESS
     ios_config:
@@ -13,7 +13,7 @@
         - crypto isakmp key cisco address 172.16.0.3
       timeout: 15
 
-
+# Updates the VPN peer with the new ip address.
   - name: UPDATE VPN PEER
     ios_config:
       parents: 'crypto map Crypt 10 ipsec-isakmp'
@@ -21,14 +21,14 @@
         - set peer 172.16.0.3
 
 
-
+# This shows the running config of HQ
   - name: SHOW RUNNING CONFIG
     ios_command:
       commands:
         - show run
     register: output  
 
-
+# Saves the running config to a seperate text file for later viewing
   - name: SAVE RUNNING COFNIG  
     copy:
       content: "{{ output.stdout[0] }}"
