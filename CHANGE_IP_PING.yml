@@ -19,8 +19,9 @@
         - ping 172.16.0.2
       timeout: 30
     when: inventory_hostname == "HQ"
-    register: ping
-
+    register: ping 
+    
+#Saves the ping results for review. 
   - name: SAVE PING RESULT
     copy:
       content: "{{ ping.stdout[0] }}"
