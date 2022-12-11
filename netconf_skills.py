@@ -25,21 +25,6 @@ def conf_loopback(number):
 
 ### stuff that toggles interfaces ###
 
-'''
-Checks weather an interface is up or down.
-    interface: template tailored to the target interface
-    rTarget: the target router
-Returns: 1 if enabled, 0 if disabled
-'''
-def check_interface(interface,rTarget):
-    #get the target interface's configuration
-    netconf_reply = str(rTarget.get_config(source="running", filter = interface))
-    #check if the interface is enabled
-    if "<enabled>true</enabled>" in netconf_reply:
-        return 1 
-    else: 
-        return 0
-
 # Determines what router and interface should be toggled based on the arguments.
 def toggle_handler(message): 
     #cut toggle out of the string
@@ -98,3 +83,18 @@ def toggle_interface(intName, intNum, rTarget):
     netconf_reply = rTarget.get_config(source="running", filter = netconf_filter)
     
     return xml.dom.minidom.parseString(netconf_reply.xml).toprettyxml()
+
+'''
+Checks weather an interface is up or down.
+    interface: template tailored to the target interface
+    rTarget: the target router
+Returns: 1 if enabled, 0 if disabled
+'''
+def check_interface(interface,rTarget):
+    #get the target interface's configuration
+    netconf_reply = str(rTarget.get_config(source="running", filter = interface))
+    #check if the interface is enabled
+    if "<enabled>true</enabled>" in netconf_reply:
+        return 1 
+    else: 
+        return 0
