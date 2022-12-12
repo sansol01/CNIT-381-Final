@@ -30,9 +30,9 @@ def backup(message):    # this function determines which router to backup
         return "Backup for Branch file location: " + backupR(r1)  
     elif "HQ" in message:   # if HQ is specified, HQ will be backed up
         return "Backup for HQ file loaction: " + backupR(r2)  
-    elif "all" in message: # is the all option is specified it will perform a backup off all the routers
+    elif "all" in message:  # is the all option is specified it will perform a backup off all the routers
         return ("Backup of all routers performed:\n" + "Branch file loaction: " + backupR(r1) + "\n HQ file location" + backupR(r2)) # if there was no specification or all was specified all routers will be backed up
-    else:   # if no routers were specified it will give error message detailing it is case sensitive and the options availible.
+    else:                   # if no routers were specified it will give error message detailing it is case sensitive and the options availible.
         return 'I am case-sensitive! Do "Branch" for Branch router, "HQ" for HQ router, and "all" for all rotuers.\n IMPORTANT! NO BACKUPS WERE MADE!!'
 
 
