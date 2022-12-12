@@ -12,6 +12,15 @@ Becasue of the connection the branch has their public IP address changes every 3
 Part of the chatbots purpose it to notify the IT administrator at the brach that a new IP address has been assigned and to then automatically change the VPN configuration to use this new IP address to regain secure VPN access to HQ.
 .
 # Tutorials
+***Netmiko Skill Tutorial: Backup Routers***
+Usage: backup [router|all]
+
+This command will give you the option to perform a configuration backup of either a router of specification such as R1 or R2 or all to backup all the routers in the router list.
+If none of the paramaters are specified (R1, R2 or all) the bot will backup all.
+When the command is run it will connect to the router, run the privilige exec command "show run" and save the output of the command to a txt file with the name being [Router_IP_Address]-[YEAR]-[MONTH]-[DAY]-[HOUR]-[MINUTE].txt (This follows the 24 hour clock).
+This file is saved in the 
+ROUTER_BACKUP folder.
+
 ***NETCONF Skill Tutorial: Interface Toggler***
 
 Usage: toggle [router] [interface]
