@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ~/CNIT-381-Final
+cd ~/CNIT-381-Final-main
 
 # Runs the playbook.
 if true;then
