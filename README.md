@@ -23,9 +23,9 @@ This file is saved in the
 ROUTER_BACKUP folder.
 
 ***NETCONF Skill Tutorial: Interface Toggler***
-
+```
 Usage: toggle [router] [interface]
-
+```
 The toggle command, when given a router and interface to act on, will enable a disabled interface, or disable an enabled interface.
 It requires the name of the router ("hq" or "branch" for this project) and the abreviated name of the interface you'd like to toggle (lo2, gb1, etc.)
 If either of these arguments are invalid or missing, the bot will let you know.
@@ -34,15 +34,15 @@ After toggling the interface, the chat bot will print some information about the
 ![screenshot](pictures/netconftutorial1.png)
 
 ***Ansible Skills Tutorial: Test the vpn config, and update the vpn config***
-
+```
 Usage: vpn test
-
+```
 This command will allow an anisble playbook to update the interface with a new ip address. The playbook then sends a ping to test that configuration change and depending on whether that fails or not will depend on whether the VPN information will need to be updated or not.
 
 ![screenshot](pictures/monitor_ping.png)
-
+```
 Usage: update vpn
-
+```
 This command will update the vpn configuration of the HQ router with the new IP addressing information from the other ansible skill.
 
 
