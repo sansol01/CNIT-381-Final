@@ -16,11 +16,13 @@ Part of the chatbots purpose it to notify the IT administrator at the brach that
 ```
 Usage: backup [router|all]
 ```
-This command will give you the option to perform a configuration backup of either a router of specification such as R1 or R2 or all to backup all the routers in the router list.
-If none of the paramaters are specified (R1, R2 or all) the bot will backup all.
+This command will give you the option to perform a configuration backup of either a router of specification such as Branch or HQ or all to backup all the routers in the router list.
+If none of the paramaters are specified (Branch, HQ or all) the bot will backup all.
 When the command is run it will connect to the router, run the privilige exec command "show run" and save the output of the command to a txt file with the name being [Router_IP_Address]-[YEAR]-[MONTH]-[DAY]-[HOUR]-[MINUTE].txt (This follows the 24 hour clock).
-This file is saved in the 
-ROUTER_BACKUP folder.
+This file is saved in the ROUTER_BACKUP folder.
+In addition the command copy run start will be performed at the end saving the running configuration to the startup configuration stored in NVRAM so that it will start to the most recent backup should it loose power or be turned off for other reasons.
+
+![screenshot](pictures/netmiko_skills.png)
 
 ***NETCONF Skill Tutorial: Interface Toggler***
 ```
