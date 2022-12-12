@@ -8,9 +8,9 @@ import netmiko_skills as bu
 import monitor_skill as monitoring
 
 # Router Info 
-device_address = routers.router1['host']
-device_username = routers.router1['username']
-device_password = routers.router1['password']
+device_address = routers.ncHQ['host']
+device_username = routers.ncHQ['username']
+device_password = routers.ncHQ['password']
 
 # RESTCONF Setup
 port = '443'
