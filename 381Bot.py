@@ -95,7 +95,7 @@ bot.set_greeting(greeting)
 # Add Bot's Commmands
 bot.add_command("toggle", "Ex: toggle [router] [interface] | toggle r2 lo2", toggle_int)
 bot.add_command("new loop", "Ex: new loop 2", new_loop)
-bot.add_command("backup", "Ex: backup [router] | backup r1 | backup all", backup)
+bot.add_command("backup", "Ex: backup [router|all] | backup Branch | backup all", backup)
 bot.add_command("vpn test", "Ex: tests the vpn config", ping_test)
 bot.add_command("update vpn", "Ex: updates the vpn configuration", updatevpn)
 # Every bot includes a default "/echo" command.  You can remove it, or any
