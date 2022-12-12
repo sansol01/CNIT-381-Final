@@ -7,7 +7,7 @@ import routers
 
 r1 = { # Branch router
         'device_type': 'cisco_ios',
-        'host': '192.168.56.102', 
+        'host': '192.168.56.103', 
         'username': 'cisco',
         'password': 'cisco123!',
         'port': 22,
@@ -16,7 +16,7 @@ r1 = { # Branch router
     }
 r2 = { # HQ router
         'device_type': 'cisco_ios',
-        'host': '192.168.56.107', 
+        'host': '192.168.56.101', 
         'username': 'cisco',
         'password': 'cisco123!',
         'port': 22,
